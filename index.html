@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <style>
+        /* *{border: 1px #000 solid;} */
+
+        body{
+            display: flex;
+            justify-content: center;
+            margin: 0px;
+        }
+
+        .content{
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            flex-basis: 550px; 
+            gap: 10px;
+        }
+
+        header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            background: #FFEFA5;;
+            height: 80px;
+            margin-top: 10px;
+        }
+
+        header p{
+            font-family: Impact;
+            font-size: 36px;
+            
+            color: #B46C27;
+        }
+        
+        main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            background: #F1F1F1;
+            flex: 1;
+        }
+
+        footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            background: #FFEFA5;;
+            height: 160px;
+            margin-bottom: 10px;
+        }
+               
+
+
+
+        .beer-max{
+            display: flex;
+            justify-content: center;    
+            align-items: center;
+        }
+        
+        .beer-max p{
+            font-family: Impact;
+            font-size: 48px;
+            text-transform: uppercase;
+            color: #B46C27;
+            margin-left: 10px;
+        }
+
+
+
+        .beer-now{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .beer-now p{
+            font-family: Impact;
+            font-size: 48px;
+            text-transform: uppercase;
+            color: #B46C27;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <header>
+            <p>PIVKO</p>
+        </header>
+        <main>
+            <img src="beer1.png" style="width: 350px; opacity: 0.05;">
+        </main>
+        <footer>
+            <div class="beer-max">
+                <img src="beer2.png" width="50px" height="50px">
+                <p>25</p>
+            </div>
+
+            <img id="img" src="1.png" height="150px">
+
+            <div class="beer-now">
+                <img src="beer1.png" width="50px" height="50px">
+                <p>25</p>
+            </div>
+        </footer>
+    </div>
+    
+    
+
+    <script>
+    
+        img = ['1.png', '2.png']
+        num = 0
+    
+        $('#img').attr('src', img[0])
+        
+        setInterval(ggg, 1000)
+
+        function ggg(){
+
+            if(num == 0){
+                num++
+            }
+            else{
+                num--
+            }
+            
+            $('#img').attr('src', img[num])
+            }
+        
+    </script>
+</body>
+</html>
