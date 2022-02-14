@@ -33,11 +33,9 @@
         }
         
         main{
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-radius: 10px;
-            background: #F1F1F1;
+            background: #F1F1F1 url('fon.png') no-repeat center;
+            background-size: 200px;
             flex: 1;
             overflow: hidden;
             margin: 10px 0px;
@@ -81,11 +79,16 @@
             margin-left: 5px;
         }
 
-        @media (min-width: 992px) {
+        @media (min-width: 800px) {
             .content{
                 min-height: 100vh;
                 flex-basis: 500px;
             }
+        }
+
+        .beer{
+            position: relative; 
+            top: -100px;           
         }
 
         
@@ -97,9 +100,11 @@
         <header>
             <p>PIVKO</p>
         </header>
-        <main>
-            <img src="beer1.png" style="width: 200px; opacity: 0.05;">
+
+        <main >
+            <img onclick="func()" class="beer" src="beer2.png" width="100px">
         </main>
+
         <footer>
             <div class="beer-max">
                 <img src="beer2.png" height="40px">
@@ -116,28 +121,66 @@
     </div>
     
     
-
     <script>
-    
-        img = ['1.png', '2.png']
-        num = 0
-    
-        $('#img').attr('src', img[0])
+
+        width  = $('main').width()
+        height = $('main').height()
+        code   = $('main').html()
+        str    = -100
+        speed  = 1500
         
-        setInterval(ggg, 1000)
 
-        function ggg(){
+        
 
-            if(num == 0){
-                num++
+        function repeat() {
+
+            rand = Math.floor(Math.random() * width)
+        
+            if(str == -100){
+                str = height 
+                $('.beer').animate({top:str}, speed)
+                
             }
-            else{
-                num--
+            if(str == height){
+                str = -100
+                $('.beer').animate({top:str}, 1)
+                $('.beer').animate({left:rand}, 1)
             }
             
-            $('#img').attr('src', img[num])
-            }
+            
+            // $('main').prepend('<img onclick="func()" class="beer" src="beer2.png" width="100px">')
+
+            
+        }
+
         
+        setInterval(repeat, speed)
+        
+        function func() {
+            img = ['1.png', '2.png']
+            num = 0
+        
+            $('#img').attr('src', img[0])
+            
+            ggg()
+
+            function ggg(){
+
+                if(num == 0){
+                    num++
+                }
+                else{
+                    num--
+                }
+                
+                $('#img').attr('src', img[num])
+            }
+        }
+     
     </script>
+
+    
+
+    
 </body>
 </html>
