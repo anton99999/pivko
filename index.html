@@ -18,23 +18,23 @@
             display: flex;
             min-height: 100vh;
             flex-direction: column;
-            flex-basis: 550px; 
-            gap: 10px;
+            flex-basis: 320px; 
+            gap: 20px;
         }
 
         header{
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 30px;
+            border-radius: 20px;
             background: #FFEFA5;;
-            height: 80px;
+            height: 50px;
             margin-top: 10px;
         }
 
         header p{
             font-family: Impact;
-            font-size: 36px;
+            font-size: 32px;
             
             color: #B46C27;
         }
@@ -43,18 +43,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 30px;
+            border-radius: 20px;
             background: #F1F1F1;
             flex: 1;
+            overflow: hidden;
         }
 
         footer{
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 30px;
+            border-radius: 20px;
             background: #FFEFA5;;
-            height: 160px;
+            height: 100px;
             margin-bottom: 10px;
         }
                
@@ -69,10 +70,10 @@
         
         .beer-max p{
             font-family: Impact;
-            font-size: 48px;
+            font-size: 24px;
             text-transform: uppercase;
             color: #B46C27;
-            margin-left: 10px;
+            margin-left: 5px;
         }
 
 
@@ -85,11 +86,13 @@
 
         .beer-now p{
             font-family: Impact;
-            font-size: 48px;
+            font-size: 24px;
             text-transform: uppercase;
             color: #B46C27;
-            margin-left: 10px;
+            margin-left: 5px;
         }
+
+        
     </style>
 </head>
 <body>
@@ -99,18 +102,18 @@
             <p>PIVKO</p>
         </header>
         <main>
-            <img src="beer1.png" style="width: 350px; opacity: 0.05;">
+            <img src="beer1.png" style="width: 250px; opacity: 0.05;">
         </main>
         <footer>
             <div class="beer-max">
-                <img src="beer2.png" width="50px" height="50px">
+                <img src="beer2.png" height="30px">
                 <p>25</p>
             </div>
 
-            <img id="img" src="1.png" height="150px">
+            <img id="img" src="1.png" height="100px">
 
             <div class="beer-now">
-                <img src="beer1.png" width="50px" height="50px">
+                <img src="beer1.png" height="30px">
                 <p>25</p>
             </div>
         </footer>
