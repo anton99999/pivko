@@ -14,25 +14,33 @@
         
         body{ margin: 0; padding: 0; }
 
-        .one, .two{
+        .a, .b, .c{
             background: green;
             height: 100px;
             width: 100px;
-            
         }
-        .two{
+        .b{
             background: red;
         }
+        .c{
+            background: blue;
+        }
+
 
     </style>
 </head>
 <body>
     <div class="content">
-        <div class="one"></div>
-        <div class="two"></div>
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
     </div>
     <script>
-        $(".one, .two").draggable({ snap: ".one, .two", snapMode: "outer", grid: [ 50, 50 ] });
+        
+        $(".a").draggable();
+        $(".b").draggable({ snap: ".a, .b, .c", snapMode: "outer"});
+        $(".c").draggable({ grid: [ 50, 50 ] });
+
     </script>
     
 </body>
