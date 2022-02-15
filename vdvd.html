@@ -16,8 +16,8 @@
 
         .a, .b, .c{
             background: green;
-            height: 33.33vh;
-            width: 33.33vw;
+            height: 100px;
+            width: 100px;
         }
         .b{
             background: red;
@@ -39,7 +39,7 @@
         
         $(".a").draggable();
         $(".b").draggable({ snap: ".a, .b, .c", snapMode: "outer"});
-        $(".c").draggable({ grid: [ 33.33vw, 33.33vh ] });
+        $(".c").draggable({ grid: [ 100, 100 ] });
 
     </script>
     
