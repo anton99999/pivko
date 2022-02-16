@@ -7,13 +7,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Document</title>
+    <title>PIVKO</title>
     <style>
         /* *{border: 1px #000 solid;} */
 
         body{ display: flex; justify-content: center; margin: 0px; }
-
-
 
         .content{
             display: flex;
@@ -21,7 +19,6 @@
             flex-direction: column;
             flex-basis: calc(100vw - 40px);
         }
-
         header{
             display: flex;
             justify-content: center;
@@ -31,7 +28,6 @@
             height: 50px;
             margin-top: 10px;
         }
-        
         main{
             border-radius: 10px;
             background: #F1F1F1 url('fon.png') no-repeat center;
@@ -40,7 +36,6 @@
             overflow: hidden;
             margin: 10px 0px;
         }
-
         footer{
             display: flex;
             justify-content: center;
@@ -50,27 +45,22 @@
             height: 100px;
             margin-bottom: 10px;
         }
-
-
         header p{
             font-family: 'Rowdies';
             font-size: 32px;
             
             color: #B46C27;
-        }
-               
+        }     
         .beer-max{
             display: flex;
             justify-content: center;    
             align-items: center;
         }
-
         .beer-now{
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
         .beer-now p, .beer-max p{
             font-family: Rowdies;
             font-size: 28px;
@@ -78,31 +68,29 @@
             color: #B46C27;
             margin-left: 5px;
         }
-
         @media (min-width: 800px) {
             .content{
                 min-height: 100vh;
                 flex-basis: 500px;
             }
         }
-
         .beer{
             position: relative; 
-            top: -100px;           
+            top: -100px;   
+            padding-top: 20px;        
         }
-
-        
     </style>
 </head>
 <body>
 
     <div class="content">
+
         <header>
             <p>PIVKO</p>
         </header>
 
-        <main >
-            <img onclick="func()" class="beer" src="beer2.png" width="100px">
+        <main>
+            <img class="beer" src="beer1.png" width="100px">
         </main>
 
         <footer>
@@ -118,69 +106,50 @@
                 <p>25</p>
             </div>
         </footer>
-    </div>
-    
-    
+
+    </div>  
+
     <script>
+        var fps    = 60
+        var posY   = 0
+        var posX   = 0 
+        var speed  = 7
+        var speedY = speed
+        var speedX = speed
+        var nspeed = -speed
+        var count  = 0
+        var update = setInterval(update, 1000/fps)
 
-        width  = $('main').width()
-        height = $('main').height()
-        code   = $('main').html()
-        str    = -100
-        speed  = 1500
-        
 
-        
 
-        function repeat() {
+        function update(){
+            width  = $('main').width()  - $('.beer').width()
+            height = $('main').height()
 
-            rand = Math.floor(Math.random() * width)
-        
-            if(str == -100){
-                str = height 
-                $('.beer').animate({top:str}, speed)
-                
+            $('.beer').css('top', posY)
+            $('.beer').css('left', posX)
+            
+            posY += speedY
+
+            if(posY >= height){
+                posX = Math.floor(Math.random() * width)
+                posY = -200
             }
-            if(str == height){
-                str = -100
-                $('.beer').animate({top:str}, 1)
-                $('.beer').animate({left:rand}, 1)
-            }
-            
-            
-            // $('main').prepend('<img onclick="func()" class="beer" src="beer2.png" width="100px">')
-
-            
-        }
-
-        
-        setInterval(repeat, speed)
-        
-        function func() {
-            img = ['1.png', '2.png']
-            num = 0
-        
-            $('#img').attr('src', img[0])
-            
-            ggg()
-
-            function ggg(){
-
-                if(num == 0){
-                    num++
-                }
-                else{
-                    num--
-                }
-                
-                $('#img').attr('src', img[num])
+            if(posY <= 0){
+                speedY = speed
             }
         }
-     
+
+        $('.beer').mousedown(function(){
+            count++
+            $('.beer-now p').text(count)
+            localStorage.setItem('count', count)
+            posY = -200
+            posX = Math.floor(Math.random() * width)
+            $('#img').attr('src', '2.png') 
+            setTimeout(function(){$('#img').attr('src', '1.png')}, 500)
+        })
+
     </script>
-
-    
-
-    
 </body>
 </html>
